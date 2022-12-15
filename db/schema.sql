@@ -8,31 +8,30 @@ USE tracker_db;
 
 -- Create our tables and our keys --
 CREATE TABLE department (
-  department_name VARCHAR(30) NOT NULL,
   id INT NOT NULL AUTO_INCREMENT,
+  department_name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE role (
-  title VARCHAR(30) NOT NULL,
-  salary DECIMAL,
-  department_id INT,
   id INT NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (id),
+  title VARCHAR(30) NOT NULL,
+  salary INT,
+  department_id INT,
+  PRIMARY KEY role(id),
   FOREIGN KEY (department_id)
-  REFERENCES department(id)
+  REFERENCES department(department_id)
 );
 
 CREATE TABLE employee (
+  id INT NOT NULL AUTO_INCREMENT,
   first_name VARCHAR(30),
   last_name VARCHAR(30),
-  job_title VARCHAR(30),
-  employee_department VARCHAR(30),
+  role_id INT,
   manager_id INT,
-  id INT NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (id),
   FOREIGN KEY (manager_id)
-  REFERENCES employee(id),
+  REFERENCES employee(id)
 );
 
 
