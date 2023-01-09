@@ -1,39 +1,30 @@
--- Drop DB if exists, create our tracker database to begin --
 DROP DATABASE IF EXISTS tracker_db;
+CREATE database tracker_db;
 
-CREATE DATABASE tracker_db;
-
--- Use tracker_db --
 USE tracker_db;
 
--- Create our tables and our keys --
-CREATE TABLE department (
-  id INT NOT NULL AUTO_INCREMENT,
-  department_name VARCHAR(30) NOT NULL,
-  PRIMARY KEY (id)
+CREATE TABLE Departments (
+  dept_id INTEGER AUTO_INCREMENT,
+  name VARCHAR(100) NOT NULL,
+  PRIMARY KEY (dept_id)
 );
 
-CREATE TABLE role (
-  id INT NOT NULL AUTO_INCREMENT,
-  title VARCHAR(30) NOT NULL,
-  salary INT,
-  department_id INT,
-  PRIMARY KEY role(id),
-  FOREIGN KEY department(id)
-  REFERENCES department(id)
+CREATE TABLE Roles (
+  role_id INTEGER AUTO_INCREMENT,
+  title VARCHAR(100) NOT NULL,
+  salary DECIMAL(10,2) NULL,
+  dept_id INTEGER,
+  PRIMARY KEY (role_id),
+  FOREIGN KEY (dept_id) REFERENCES Departments(dept_id)
 );
 
-CREATE TABLE employee (
-  id INT NOT NULL AUTO_INCREMENT,
-  first_name VARCHAR(30),
+CREATE TABLE Employees (
+  emp_id INTEGER AUTO_INCREMENT,
+  first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30),
-  role_id INT,
-  manager_id INT,
-  PRIMARY KEY (id),
-  FOREIGN KEY (manager_id)
-  REFERENCES employee(id)
+  role_id INTEGER,
+  manager_id INTEGER,
+  PRIMARY KEY (emp_id),
+  FOREIGN KEY (role_id) REFERENCES Roles(role_id),
+  FOREIGN KEY (manager_id) REFERENCES Employees(emp_id)
 );
-
-
-
-

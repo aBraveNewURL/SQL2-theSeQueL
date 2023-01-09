@@ -1,7 +1,5 @@
-const inquirer = require('inquirer');
-const db = require('./connection');
-const mysql = require('mysql');
-
-// optional banner time permitting
+const { db } = require("../connection");
+const { default: inquirer } = require("inquirer");
 const runIndex = require('./util/index');
+
 runIndex();
