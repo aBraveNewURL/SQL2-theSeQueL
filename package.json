@@ -2,10 +2,10 @@
   "name": "SQL2-theSeQueL",
   "version": "1.0.0",
   "description": "Our cohort's 12th challenge",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node index.js "
   },
   "repository": {
     "type": "git",
@@ -13,8 +13,9 @@
   },
   "homepage": "https://github.com/aBraveNewURL/SQL2-theSeQueL#readme",
   "dependencies": {
-    "inquirer": "^7.3.3",
-    "mysql": "^2.18.1",
-    "dotenv": "^16.0.3"
+    "dotenv": "^16.0.3",
+    "inquirer": "^8.2.4",
+    "mysql": "^2.3.3",
+    "mysql2": "^2.3.3"
   }
 }

@@ -7,5 +7,5 @@ const allDepartments = () => {
         if (err) throw err;
         console.table(result);
         initialize();
-    } )
+    })
 };

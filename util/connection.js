@@ -1,7 +1,7 @@
-// .env file and connection for increased security
+const mysql = require('mysql2');
 require('dotenv').config();
-const mySql = require('mysql2');
-const db = mySql.createConnection(
+
+const db = mysql.createConnection(
     {
         host: 'localhost',
         database: process.env.DB_NAME,
